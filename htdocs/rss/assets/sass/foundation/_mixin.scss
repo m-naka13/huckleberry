@@ -1,0 +1,97 @@
+@mixin clearfix {
+  overflow: hidden;
+}
+@mixin legacy-pie-clearfix {
+  &:after {
+    content: ".";
+    visibility: hidden;
+    height: auto;
+    line-height: 0;
+    clear: both;
+    display: block;
+  }
+}
+
+@mixin rem-font-size($size) {
+  font-size: $size + px;
+  font-size: ($size / 10) * 1rem;
+}
+
+@mixin scaleImg(){
+  overflow: hidden;
+  display: block;
+  img{
+    -moz-transition: -moz-transform 0.1s linear;
+    -webkit-transition: -webkit-transform 0.1s linear;
+    -o-transition: -o-transform 0.1s linear;
+    -ms-transition: -ms-transform 0.1s linear;
+    transition: transform 0.1s linear;
+  }
+  &:hover{
+    img{
+      transform: scale(1.1,1.1);
+    }
+  }
+}
+
+@mixin placeholderColor($color) {
+    &:placeholder-shown {
+        color: $color;
+    }
+    &::-webkit-input-placeholder {
+        color:$color;
+    }
+    &:-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+    &::-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color:$color;
+    }
+}
+
+@mixin triangle-maker($size, $color, $direct){
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: $size solid transparent;
+  border-right: $size solid transparent;
+  border-bottom: $size solid transparent;
+  border-left: $size solid transparent;
+  @if $direct == top{
+    border-top: $size solid $color;
+  } @else if $direct == left{
+    border-left: $size solid $color;
+  } @else if $direct == right{
+    border-right: $size solid $color;
+  } @else if $direct == bottom{
+    border-bottom: $size solid $color;
+  }
+}
+
+@mixin pcmin-screen(){
+  @media screen and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin sp-screen(){
+  @media screen and (max-width: 840px) {
+    @content;
+  }
+}
+
+.clearfix {
+  *zoom: 1;
+  &:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+  }
+}

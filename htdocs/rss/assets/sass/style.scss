@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+//====================================
+//  foundation
+//====================================
+@import "foundation/reset";
+@import "foundation/variable";
+@import "foundation/mixin";
+
+body {
+
+}
+
+#rss {
+  ul {
+    li {
+      a {
+        display: none;
+      }
+      img {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+@include sp-screen {
+  body {
+    width:100%;
+    overflow-x: hidden
+  }
+}
